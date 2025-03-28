@@ -1,0 +1,165 @@
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+/* Card component override - very specific to ensure it works */
+html[data-theme='dark'] .card,
+html.dark .card,
+.dark .card {
+  background-color: #1f2937 !important;
+  border-color: #374151 !important;
+  color: #e5e7eb !important;
+}
+
+/* Direct targeting of dashboard stat cards */
+html[data-theme='dark'] .grid.grid-cols-1.md\:grid-cols-2.lg\:grid-cols-4.gap-4.mb-8 > div {
+  background-color: #1f2937 !important;
+  border-color: #374151 !important;
+  color: #e5e7eb !important;
+}
+
+/* Direct targeting of dashboard analytics cards */
+html[data-theme='dark'] .grid.grid-cols-1.lg\:grid-cols-2.gap-6.mb-6 > div {
+  background-color: #1f2937 !important;
+  border-color: #374151 !important;
+  color: #e5e7eb !important;
+}
+
+/* DaisyUI theme overrides */
+html[data-theme='dark'] {
+  --primary: #60a5fa;
+  --primary-focus: #3b82f6;
+  --primary-content: #ffffff;
+  --secondary: #f000b8;
+  --accent: #37cdbe;
+  --neutral: #2a323c;
+  --base-100: #1f2937;
+  --base-200: #111827;
+  --base-300: #0f172a;
+  --base-content: #e5e7eb;
+  color-scheme: dark;
+  background-color: #111827;
+  color: #e5e7eb;
+}
+
+html[data-theme='dark'] body {
+  background-color: #111827;
+  color: #e5e7eb;
+}
+
+html[data-theme='dark'] .bg-white {
+  background-color: #1f2937 !important;
+}
+
+html[data-theme='dark'] .bg-gray-100 {
+  background-color: #374151 !important;
+}
+
+html[data-theme='dark'] .bg-gray-800 {
+  background-color: #1f2937 !important;
+}
+
+html[data-theme='dark'] .bg-gray-900 {
+  background-color: #111827 !important;
+}
+
+html[data-theme='dark'] .text-gray-900 {
+  color: #e5e7eb !important;
+}
+
+html[data-theme='dark'] .text-gray-700 {
+  color: #d1d5db !important;
+}
+
+html[data-theme='dark'] .border-gray-200 {
+  border-color: #374151 !important;
+}
+
+html[data-theme='dark'] .border-gray-700 {
+  border-color: #1f2937 !important;
+}
+
+html[data-theme='light'] {
+  color-scheme: light;
+  background-color: #ffffff;
+  color: #000000;
+  --primary: #3b82f6;
+  --primary-focus: #2563eb;
+  --primary-content: #ffffff;
+  --base-100: #ffffff;
+  --base-200: #f9fafb;
+  --base-300: #f3f4f6;
+  --base-content: #1f2937;
+}
+
+/* Target dark-card class directly */
+html[data-theme='dark'] .dark-card {
+  background-color: #1f2937 !important;
+  border-color: #374151 !important;
+  color: #e5e7eb !important;
+}
+
+/* Add this to fix the sidebar hover issue */
+html[data-theme='dark'] .dark\:hover\:bg-gray-700:hover,
+html[data-theme='dark'] nav a:hover {
+  background-color: #374151 !important;
+  color: #e5e7eb !important;
+}
+
+/* Improved form controls for dark mode */
+html[data-theme='dark'] .input-field,
+html[data-theme='dark'] select,
+html[data-theme='dark'] input {
+  background-color: #374151 !important;
+  border-color: #4B5563 !important;
+  color: #F9FAFB !important;
+}
+
+html[data-theme='dark'] select option {
+  background-color: #1F2937;
+  color: #F9FAFB;
+}
+
+html[data-theme='dark'] label {
+  color: #F3F4F6 !important;
+}
+
+/* Add this to improve filter section visibility */
+html[data-theme='dark'] [class*="Filter Tasks"] h3,
+html[data-theme='dark'] h3.font-medium,
+html[data-theme='dark'] .mb-4 h3 {
+  color: white !important;
+  font-weight: 600 !important;
+} 

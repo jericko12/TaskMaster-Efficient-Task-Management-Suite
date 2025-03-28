@@ -1,0 +1,191 @@
+@import "tailwindcss";
+
+@layer components {
+  .btn-primary {
+    @apply bg-blue-600 text-white font-medium py-2 px-4 rounded-lg shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900 transition-colors;
+  }
+  
+  .btn-secondary {
+    @apply bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 font-medium py-2 px-4 rounded-lg border border-gray-300 dark:border-gray-600 shadow-sm hover:bg-gray-50 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-400 dark:focus:ring-gray-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900 transition-colors;
+  }
+
+  .btn-danger {
+    @apply bg-red-600 text-white font-medium py-2 px-4 rounded-lg shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900 transition-colors;
+  }
+
+  .btn-sm {
+    @apply py-1.5 px-3 text-sm;
+  }
+
+  .card {
+    @apply bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden transition-shadow hover:shadow;
+  }
+
+  .input-field {
+    @apply w-full px-3 py-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 dark:text-white shadow-sm transition-all;
+  }
+
+  .form-group {
+    @apply mb-4;
+  }
+
+  .form-label {
+    @apply block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1;
+  }
+  
+  .dropdown-menu {
+    @apply absolute right-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 py-1 z-10;
+  }
+  
+  .dropdown-item {
+    @apply block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer;
+  }
+}
+
+/* Custom animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-in-out forwards;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100 dark:bg-gray-800;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-300 dark:bg-gray-600 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-400 dark:bg-gray-500;
+}
+
+body {
+  @apply bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-white;
+}
+
+/* Explicit dark mode styles for HTML element */
+html[data-theme='dark'] {
+  background-color: #111827;
+  color: #e5e7eb;
+}
+
+html[data-theme='dark'] body {
+  background-color: #111827;
+  color: #e5e7eb;
+}
+
+html[data-theme='dark'] .sidebar {
+  background-color: #1f2937;
+  border-color: #374151;
+}
+
+html[data-theme='dark'] .bg-white {
+  background-color: #1f2937 !important;
+}
+
+html[data-theme='dark'] .bg-gray-50 {
+  background-color: #111827 !important;
+}
+
+html[data-theme='dark'] .bg-gray-100 {
+  background-color: #283548 !important;
+}
+
+html[data-theme='dark'] .bg-gray-200 {
+  background-color: #374151 !important;
+}
+
+html[data-theme='dark'] .text-gray-900 {
+  color: #f9fafb !important;
+}
+
+html[data-theme='dark'] .text-gray-800 {
+  color: #f3f4f6 !important;
+}
+
+html[data-theme='dark'] .text-gray-700 {
+  color: #e5e7eb !important;
+}
+
+html[data-theme='dark'] .text-gray-600 {
+  color: #d1d5db !important;
+}
+
+html[data-theme='dark'] .text-gray-500 {
+  color: #9ca3af !important;
+}
+
+html[data-theme='dark'] .border-gray-200 {
+  border-color: #374151 !important;
+}
+
+html[data-theme='dark'] .border-gray-300 {
+  border-color: #4b5563 !important;
+}
+
+.task-priority-high {
+  @apply border-l-4 border-red-500;
+}
+
+.task-priority-medium {
+  @apply border-l-4 border-yellow-500;
+}
+
+.task-priority-low {
+  @apply border-l-4 border-green-500;
+}
+
+.task-status-complete {
+  @apply bg-green-100 dark:bg-green-900/30;
+}
+
+.task-status-in-progress {
+  @apply bg-blue-100 dark:bg-blue-900/30;
+}
+
+.task-status-pending {
+  @apply bg-gray-100 dark:bg-gray-800;
+}
+
+.task-overdue {
+  @apply text-red-500 font-semibold;
+}
+
+/* Page transitions */
+.page-enter {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.page-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.page-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.page-exit-active {
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 300ms, transform 300ms;
+}
