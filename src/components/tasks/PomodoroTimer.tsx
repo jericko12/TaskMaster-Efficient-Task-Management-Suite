@@ -1,10 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { 
   FiPlay, 
   FiPause, 
   FiSkipForward, 
   FiRefreshCw, 
-  FiClock, 
   FiSettings 
 } from 'react-icons/fi';
 import { usePomodoro } from '../../hooks/usePomodoro';

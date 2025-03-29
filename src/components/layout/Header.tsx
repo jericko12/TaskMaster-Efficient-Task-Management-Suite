@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import { FiSun, FiMoon, FiSearch, FiMenu, FiX } from 'react-icons/fi';
 import { useApp } from '../../store/AppContext';
 

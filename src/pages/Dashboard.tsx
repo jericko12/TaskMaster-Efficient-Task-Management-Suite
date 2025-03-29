@@ -8,16 +8,15 @@ import {
   FiActivity, 
   FiCalendar, 
   FiList,
-  FiBarChart2,
-  FiFlag 
+  FiBarChart2
 } from 'react-icons/fi';
 import { useApp } from '../store/AppContext';
 import { TaskList } from '../components/tasks/TaskList';
-import { isTaskDueToday, isTaskOverdue, filterTasks, calculateTaskStatistics } from '../utils/helpers';
+import { isTaskDueToday, isTaskOverdue, calculateTaskStatistics } from '../utils/helpers';
 import { Task } from '../types';
 
 export function Dashboard() {
-  const { tasks, projects, settings } = useApp();
+  const { tasks } = useApp();
   const [todayTasks, setTodayTasks] = useState<Task[]>([]);
   const [overdueTasks, setOverdueTasks] = useState<Task[]>([]);
   const [upcomingTasks, setUpcomingTasks] = useState<Task[]>([]);

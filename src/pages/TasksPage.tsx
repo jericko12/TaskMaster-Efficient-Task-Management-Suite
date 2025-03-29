@@ -7,11 +7,8 @@ import {
   FiGrid, 
   FiList as FiListIcon,
   FiCalendar,
-  FiClock,
-  FiTag,
   FiMoreVertical,
   FiCheck,
-  FiTrash2,
   FiEdit3
 } from 'react-icons/fi';
 import { useApp } from '../store/AppContext';

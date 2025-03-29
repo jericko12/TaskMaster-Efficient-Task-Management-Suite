@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
-import { FiBarChart2, FiCheckCircle, FiClock, FiPlus, FiCalendar, FiFlag } from 'react-icons/fi';
+import { FiBarChart2, FiCheckCircle, FiClock, FiFlag } from 'react-icons/fi';
 import { useApp } from '../store/AppContext';
-import { Task } from '../types';
 
 export function AnalyticsPage() {
   const { tasks } = useApp();

@@ -1,13 +1,11 @@
 import { useState, useEffect } from 'react';
-import { FiCalendar, FiChevronLeft, FiChevronRight } from 'react-icons/fi';
+import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 import { useApp } from '../store/AppContext';
-import { Task } from '../types';
 
 export function CalendarPage() {
   const { tasks } = useApp();
-  const [currentDate, setCurrentDate] = useState(new Date());
-  const [currentMonth, setCurrentMonth] = useState(currentDate.getMonth());
-  const [currentYear, setCurrentYear] = useState(currentDate.getFullYear());
+  const [currentMonth, setCurrentMonth] = useState(new Date().getMonth());
+  const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
   const [animateIn, setAnimateIn] = useState(false);
   
   useEffect(() => {

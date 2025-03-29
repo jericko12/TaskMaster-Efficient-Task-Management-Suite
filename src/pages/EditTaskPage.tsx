@@ -103,7 +103,7 @@ export function EditTaskPage() {
         </button>
       </div>
       
-      {task && <TaskForm task={task} isEditing onSubmit={handleSubmit} />}
+      {task && <TaskForm task={task} onSubmit={handleSubmit} />}
     </div>
   );
 } 

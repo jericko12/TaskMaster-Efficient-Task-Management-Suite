@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { FiCalendar, FiClock, FiTag, FiX, FiCheck, FiAlertCircle } from 'react-icons/fi';
-import { Task } from '../../hooks/useTasks';
+import { FiCalendar, FiClock, FiTag, FiCheck, FiAlertCircle } from 'react-icons/fi';
+import { Task } from '../../types';
 import { useApp } from '../../store/AppContext';
 
 interface TaskFormProps {
