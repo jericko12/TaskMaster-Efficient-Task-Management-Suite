@@ -18,7 +18,7 @@ export function TaskForm({ task, onSubmit, isSubmitting = false }: TaskFormProps
   const [priority, setPriority] = useState<Task['priority']>(task?.priority || 'medium');
   const [dueDate, setDueDate] = useState(task?.dueDate || '');
   const [selectedTags, setSelectedTags] = useState<string[]>(task?.tags || []);
-  const [timeEstimate, setTimeEstimate] = useState<number | null>(task?.timeEstimate || null);
+  const [estimatedTime, setEstimatedTime] = useState<number | null>(task?.estimatedTime || null);
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [animateIn, setAnimateIn] = useState(false);
   
@@ -38,8 +38,8 @@ export function TaskForm({ task, onSubmit, isSubmitting = false }: TaskFormProps
       newErrors.dueDate = 'Due date cannot be in the past';
     }
     
-    if (timeEstimate !== null && timeEstimate <= 0) {
-      newErrors.timeEstimate = 'Time estimate must be greater than 0';
+    if (estimatedTime !== null && estimatedTime <= 0) {
+      newErrors.estimatedTime = 'Time estimate must be greater than 0';
     }
     
     setErrors(newErrors);
@@ -55,11 +55,12 @@ export function TaskForm({ task, onSubmit, isSubmitting = false }: TaskFormProps
         description,
         status,
         priority,
-        dueDate: dueDate || null,
+        dueDate: dueDate || undefined,
         tags: selectedTags,
-        timeEstimate: timeEstimate,
-        timeSpent: task?.timeSpent || null,
-        subtasks: task?.subtasks || [],
+        estimatedTime: estimatedTime || undefined,
+        actualTime: task?.actualTime,
+        completed: status === 'complete',
+        notes: task?.notes || ''
       };
       
       onSubmit(taskData);
@@ -125,14 +126,14 @@ export function TaskForm({ task, onSubmit, isSubmitting = false }: TaskFormProps
             <div>
               <label htmlFor="status" className="form-label">Status</label>
               <div className="flex space-x-2">
-                {(['pending', 'in-progress', 'completed'] as Task['status'][]).map((s) => (
+                {(['pending', 'in-progress', 'complete'] as Task['status'][]).map((s) => (
                   <button
                     key={s}
                     type="button"
                     onClick={() => setStatus(s)}
                     className={`flex-1 py-2 px-3 rounded-md flex items-center justify-center transition-colors ${
                       status === s
-                        ? s === 'completed' 
+                        ? s === 'complete' 
                           ? 'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300' 
                           : s === 'in-progress' 
                             ? 'bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300'
@@ -195,21 +196,21 @@ export function TaskForm({ task, onSubmit, isSubmitting = false }: TaskFormProps
             </div>
             
             <div>
-              <label htmlFor="time-estimate" className="form-label flex items-center">
+              <label htmlFor="estimated-time" className="form-label flex items-center">
                 <FiClock className="mr-2 text-gray-500" /> Time Estimate (minutes)
               </label>
               <input
                 type="number"
-                id="time-estimate"
-                value={timeEstimate === null ? '' : timeEstimate}
-                onChange={(e) => setTimeEstimate(e.target.value ? parseInt(e.target.value) : null)}
-                className={`input-field ${errors.timeEstimate ? 'border-red-500 dark:border-red-500' : ''}`}
+                id="estimated-time"
+                value={estimatedTime === null ? '' : estimatedTime}
+                onChange={(e) => setEstimatedTime(e.target.value ? parseInt(e.target.value) : null)}
+                className={`input-field ${errors.estimatedTime ? 'border-red-500 dark:border-red-500' : ''}`}
                 placeholder="Optional"
                 min="1"
               />
-              {errors.timeEstimate && (
+              {errors.estimatedTime && (
                 <p className="mt-1 text-sm text-red-500 flex items-center">
-                  <FiAlertCircle className="mr-1" /> {errors.timeEstimate}
+                  <FiAlertCircle className="mr-1" /> {errors.estimatedTime}
                 </p>
               )}
             </div>

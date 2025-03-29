@@ -34,16 +34,6 @@ export function AnalyticsPage() {
   const pendingTasks = tasks.tasks.filter(task => task.status === 'pending').length;
   const inProgressTasks = tasks.tasks.filter(task => task.status === 'in-progress').length;
   
-  // Calculate tasks created in the last 7 days
-  const last7Days = new Date();
-  last7Days.setDate(last7Days.getDate() - 7);
-  const tasksCreatedLast7Days = tasks.tasks.filter(task => {
-    return new Date(task.createdAt) > last7Days;
-  }).length;
-
-  // Dummy data for charts (in a real app, you'd use a charting library)
-  const weekdays = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
-
   return (
     <div className={`transition-all duration-500 ease-in-out ${animateIn ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
       <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
